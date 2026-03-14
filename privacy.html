@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy</title>
+
+<style>
+body{
+margin:0;
+font-family: system-ui;
+background:#111;
+color:white;
+padding:20px;
+}
+
+.card{
+background:#1c1c1c;
+padding:20px;
+border-radius:16px;
+max-width:600px;
+margin:auto;
+box-shadow:0 0 30px rgba(0,0,0,0.6);
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#36d1dc,#5b86e5);
+color:white;
+font-size:16px;
+}
+</style>
+
+<script>
+function closeWebView(){
+if(window.Android && Android.closeWebView){
+Android.closeWebView();
+}else{
+alert("Close function is available only inside the app.");
+}
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="card">
+<h2>Privacy Policy</h2>
+
+<p>Sparkle Joker does not collect, store, process or share any personal or non-personal user data.</p>
+
+<p>We respect user privacy and aim to provide a safe and transparent experience.</p>
+
+<p>This app operates fully without tracking technologies, analytics or advertising SDKs.</p>
+
+<button onclick="closeWebView()">Close Policy</button>
+
+</div>
+
+</body>
+</html>
