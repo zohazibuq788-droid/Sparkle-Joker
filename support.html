@@ -1,49 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support | Sparkle Joker</title>
+  <meta
+    name="description"
+    content="Support page for Sparkle Joker by Pippin Team."
+  />
+  <style>
+    :root{
+      --bg-1:#07111f;
+      --bg-2:#0c1d34;
+      --panel:rgba(255,255,255,0.08);
+      --panel-border:rgba(255,255,255,0.12);
+      --text:#f4f8ff;
+      --muted:#bfd0ea;
+      --accent:#6ee7ff;
+      --accent-2:#7c8cff;
+      --accent-3:#ff66c4;
+      --shadow:0 24px 60px rgba(0,0,0,.35);
+      --radius:24px;
+      --max:1180px;
+    }
 
-<style>
-body{
-margin:0;
-font-family: system-ui;
-background:linear-gradient(120deg,#232526,#414345);
-color:white;
-text-align:center;
-padding:40px;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(110,231,255,.15), transparent 28%),
+        radial-gradient(circle at top right, rgba(124,140,255,.16), transparent 26%),
+        radial-gradient(circle at bottom center, rgba(255,102,196,.10), transparent 22%),
+        linear-gradient(135deg,var(--bg-1),var(--bg-2));
+      min-height:100vh;
+    }
 
-.card{
-background:rgba(255,255,255,0.08);
-padding:30px;
-border-radius:18px;
-max-width:500px;
-margin:auto;
-}
+    a{color:inherit;text-decoration:none}
+    .shell{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-a{
-color:#00eaff;
-}
-</style>
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(18px);
+      background:rgba(7,17,31,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .topbar-inner{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2),var(--accent-3));
+      box-shadow:0 10px 30px rgba(124,140,255,.35);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:8px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.4);
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      transition:.25s ease;
+      font-size:14px;
+    }
+
+    .nav a:hover,
+    .nav a.active{
+      color:#fff;
+      transform:translateY(-1px);
+      background:linear-gradient(135deg, rgba(110,231,255,.16), rgba(124,140,255,.16));
+      border-color:rgba(255,255,255,.18);
+    }
+
+    .page{
+      min-height:calc(100vh - 76px);
+      display:flex;
+      align-items:center;
+      padding:34px 0;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+      width:100%;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--panel-border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      padding:30px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      color:var(--accent);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:28px;
+      height:1px;
+      background:currentColor;
+      opacity:.8;
+    }
+
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(30px, 5vw, 56px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+    }
+
+    .lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.75;
+    }
+
+    .contact-box{
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      margin-bottom:16px;
+    }
+
+    .contact-box small{
+      display:block;
+      color:var(--muted);
+      margin-bottom:8px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .contact-box strong{
+      display:block;
+      font-size:20px;
+      word-break:break-word;
+    }
+
+    .contact-box a{
+      color:#fff;
+    }
+
+    .list{
+      display:grid;
+      gap:14px;
+    }
+
+    .item{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .item h3{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+
+    .item p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 18px;
+      border-radius:16px;
+      font-weight:700;
+      transition:.25s ease;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#08111e;
+      border:none;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(0,0,0,.24);
+    }
+
+    .footer{
+      padding:0 0 34px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+    }
+
+    @media (max-width: 920px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .shell,
+      .topbar-inner{
+        width:min(var(--max), calc(100% - 20px));
+      }
+
+      .topbar-inner{
+        padding:10px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .nav a{
+        flex:1 1 calc(50% - 10px);
+        text-align:center;
+      }
+
+      .page{
+        padding:20px 0;
+        align-items:flex-start;
+      }
+
+      .card{
+        padding:22px 18px;
+      }
+
+      .lead{
+        font-size:16px;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        <span>Sparkle Joker</span>
+      </a>
 
-<div class="card">
-<h2>Support</h2>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="support.html" class="active">Support</a>
+        <a href="marketing.html">Marketing</a>
+      </nav>
+    </div>
+  </header>
 
-<p>If you need help or have suggestions, contact us:</p>
+  <main class="page">
+    <div class="shell">
+      <div class="layout">
+        <section class="card">
+          <div class="eyebrow">Help & Communication</div>
+          <h1>Support</h1>
+          <p class="lead">
+            This support page is intended to provide a clear way for users,
+            moderators, and partners to contact the developer regarding Sparkle
+            Joker.
+          </p>
 
-<p><b>Pippin Team</b></p>
-<p>Email: <a href="mailto:zohazibuq788@gmail.com">zohazibuq788@gmail.com</a></p>
+          <div class="contact-box">
+            <small>Developer Name</small>
+            <strong>Pippin Team</strong>
+          </div>
 
-<p>We appreciate feedback and strive to improve our applications.</p>
+          <div class="contact-box">
+            <small>Support Email</small>
+            <strong><a href="mailto:zohazibuq788@gmail.com">zohazibuq788@gmail.com</a></strong>
+          </div>
 
-<a href="index.html">← Back</a>
+          <div class="actions">
+            <a class="btn primary" href="mailto:zohazibuq788@gmail.com">Email Support</a>
+            <a class="btn" href="privacy.html">Privacy Policy</a>
+            <a class="btn" href="marketing.html">Project Overview</a>
+          </div>
+        </section>
 
-</div>
+        <aside class="card">
+          <div class="list">
+            <div class="item">
+              <h3>Questions and Feedback</h3>
+              <p>
+                Users can contact the developer with general questions, feedback,
+                suggestions, and practical comments related to the app.
+              </p>
+            </div>
 
+            <div class="item">
+              <h3>Transparency</h3>
+              <p>
+                Pippin Team aims to maintain an open and understandable public
+                presence around app functionality, privacy practices, and future
+                updates.
+              </p>
+            </div>
+
+            <div class="item">
+              <h3>Continuous Improvement</h3>
+              <p>
+                The project is actively approached as a growing product, and
+                support communication helps improve quality and usefulness over
+                time.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer shell">
+    © 2025 Pippin Team — Sparkle Joker Support
+  </footer>
 </body>
 </html>
