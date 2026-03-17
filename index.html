@@ -1,82 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sparkle Joker — Developer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparkle Joker | Pippin Team</title>
+  <meta
+    name="description"
+    content="Official developer page for Sparkle Joker by Pippin Team."
+  />
+  <style>
+    :root{
+      --bg-1:#07111f;
+      --bg-2:#0c1d34;
+      --panel:rgba(255,255,255,0.08);
+      --panel-border:rgba(255,255,255,0.12);
+      --text:#f4f8ff;
+      --muted:#bfd0ea;
+      --accent:#6ee7ff;
+      --accent-2:#7c8cff;
+      --accent-3:#ff66c4;
+      --shadow:0 24px 60px rgba(0,0,0,.35);
+      --radius:24px;
+      --max:1180px;
+    }
 
-<style>
-body{
-margin:0;
-font-family: system-ui, sans-serif;
-background: linear-gradient(135deg,#0f2027,#2c5364);
-color:white;
-text-align:center;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(110,231,255,.15), transparent 28%),
+        radial-gradient(circle at top right, rgba(124,140,255,.16), transparent 26%),
+        radial-gradient(circle at bottom center, rgba(255,102,196,.10), transparent 22%),
+        linear-gradient(135deg,var(--bg-1),var(--bg-2));
+      min-height:100vh;
+    }
 
-.container{
-padding:40px 20px;
-}
+    a{color:inherit;text-decoration:none}
+    .shell{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-.card{
-background:rgba(255,255,255,0.1);
-border-radius:20px;
-padding:25px;
-margin:20px auto;
-max-width:500px;
-backdrop-filter: blur(12px);
-box-shadow:0 10px 40px rgba(0,0,0,0.3);
-animation:fadeIn 1s ease;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(18px);
+      background:rgba(7,17,31,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
 
-h1{
-font-size:32px;
-margin-bottom:5px;
-}
+    .topbar-inner{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
 
-.btn{
-display:block;
-margin:12px auto;
-padding:14px;
-border-radius:12px;
-background:linear-gradient(90deg,#ff9966,#ff5e62);
-color:white;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
 
-.btn:hover{
-transform:scale(1.05);
-}
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2),var(--accent-3));
+      box-shadow:0 10px 30px rgba(124,140,255,.35);
+      position:relative;
+      overflow:hidden;
+    }
 
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px)}
-to{opacity:1; transform:translateY(0)}
-}
-</style>
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:8px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.4);
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      transition:.25s ease;
+      font-size:14px;
+    }
+
+    .nav a:hover,
+    .nav a.active{
+      color:#fff;
+      transform:translateY(-1px);
+      background:linear-gradient(135deg, rgba(110,231,255,.16), rgba(124,140,255,.16));
+      border-color:rgba(255,255,255,.18);
+    }
+
+    .hero{
+      min-height:calc(100vh - 76px);
+      display:flex;
+      align-items:center;
+      padding:42px 0 28px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .9fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--panel-border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+    }
+
+    .hero-main{
+      padding:34px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-main::before{
+      content:"";
+      position:absolute;
+      width:280px;
+      height:280px;
+      right:-80px;
+      top:-80px;
+      background:radial-gradient(circle, rgba(110,231,255,.22), transparent 68%);
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      color:var(--accent);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:28px;
+      height:1px;
+      background:currentColor;
+      opacity:.8;
+    }
+
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(34px, 6vw, 66px);
+      line-height:1.02;
+      letter-spacing:-.04em;
+    }
+
+    .lead{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:clamp(17px, 2.2vw, 20px);
+      line-height:1.7;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 18px;
+      border-radius:16px;
+      font-weight:700;
+      transition:.25s ease;
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#08111e;
+      border:none;
+    }
+
+    .btn-secondary{
+      color:#fff;
+      background:rgba(255,255,255,.06);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(0,0,0,.24);
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      padding:22px;
+    }
+
+    .mini{
+      padding:20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .mini strong{
+      display:block;
+      font-size:28px;
+      margin-bottom:8px;
+    }
+
+    .mini span{
+      color:var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    .section{
+      padding:0 0 42px;
+    }
+
+    .section-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .info-card{
+      padding:24px;
+    }
+
+    .info-card h3{
+      margin:0 0 12px;
+      font-size:20px;
+    }
+
+    .info-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .footer{
+      padding:8px 0 36px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid,
+      .section-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-main{
+        padding:26px;
+      }
+
+      .stats{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .shell,
+      .topbar-inner{
+        width:min(var(--max), calc(100% - 20px));
+      }
+
+      .topbar-inner{
+        padding:10px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .nav a{
+        flex:1 1 calc(50% - 10px);
+        text-align:center;
+      }
+
+      .hero{
+        padding:22px 0 18px;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        <span>Sparkle Joker</span>
+      </a>
 
-<div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
+        <a href="marketing.html">Marketing</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="card">
-<h1>Sparkle Joker</h1>
-<p>Developed by <b>Pippin Team</b></p>
-<p>Contact: zohazibuq788@gmail.com</p>
-</div>
+  <main class="hero">
+    <div class="shell">
+      <div class="hero-grid">
+        <section class="card hero-main">
+          <div class="eyebrow">Official Developer Page</div>
+          <h1>Sparkle Joker by Pippin Team</h1>
+          <p class="lead">
+            Welcome to the official information page for Sparkle Joker. This site
+            was created to provide a clear, open, and trustworthy overview of the
+            application, the developer identity, support contacts, and the privacy
+            approach used for this product.
+          </p>
 
-<div class="card">
-<p>We are building fun and meaningful mobile experiences.  
-This application focuses on simplicity, enjoyment and future innovation.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="privacy.html">Read Privacy Policy</a>
+            <a class="btn btn-secondary" href="support.html">Get Support</a>
+            <a class="btn btn-secondary" href="marketing.html">About the Project</a>
+          </div>
+        </section>
 
-<a class="btn" href="privacy.html">Privacy Policy</a>
-<a class="btn" href="support.html">Support</a>
-<a class="btn" href="marketing.html">About & Marketing</a>
-</div>
+        <aside class="card stats">
+          <div class="mini">
+            <strong>App</strong>
+            <span>Sparkle Joker</span>
+          </div>
+          <div class="mini">
+            <strong>Team</strong>
+            <span>Pippin Team</span>
+          </div>
+          <div class="mini">
+            <strong>Email</strong>
+            <span>zohazibuq788@gmail.com</span>
+          </div>
+          <div class="mini">
+            <strong>Focus</strong>
+            <span>Transparency, simplicity, and user trust</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
 
-</div>
+  <section class="section">
+    <div class="shell">
+      <div class="section-grid">
+        <article class="card info-card">
+          <h3>Open Developer Presence</h3>
+          <p>
+            This page helps users and platform reviewers quickly understand who
+            develops Sparkle Joker, how to contact the developer, and what users
+            can expect from the application.
+          </p>
+        </article>
 
+        <article class="card info-card">
+          <h3>Privacy First</h3>
+          <p>
+            Sparkle Joker is presented with a simple privacy model. The privacy
+            page clearly explains that the app does not collect, store, process,
+            or transfer user data.
+          </p>
+        </article>
+
+        <article class="card info-card">
+          <h3>Ongoing Improvement</h3>
+          <p>
+            Pippin Team is focused on improving product quality over time,
+            delivering a better experience, and maintaining an honest public
+            presence around the app and future development plans.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer shell">
+    © 2025 Pippin Team — Official page for Sparkle Joker
+  </footer>
 </body>
 </html>
