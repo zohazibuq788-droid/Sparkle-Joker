@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -24,292 +25,295 @@
       --max:1180px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(110,231,255,.15), transparent 28%),
-        radial-gradient(circle at top right, rgba(124,140,255,.16), transparent 26%),
-        radial-gradient(circle at bottom center, rgba(255,102,196,.10), transparent 22%),
-        linear-gradient(135deg,var(--bg-1),var(--bg-2));
-      min-height:100vh;
-    }
 
-    a{color:inherit;text-decoration:none}
-    .shell{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-    }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(110,231,255,.15), transparent 28%),
+    radial-gradient(circle at top right, rgba(124,140,255,.16), transparent 26%),
+    radial-gradient(circle at bottom center, rgba(255,102,196,.10), transparent 22%),
+    linear-gradient(135deg,var(--bg-1),var(--bg-2));
+  min-height:100vh;
+}
 
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:20;
-      backdrop-filter:blur(18px);
-      background:rgba(7,17,31,.55);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
+a{color:inherit;text-decoration:none}
+.shell{
+  width:min(var(--max), calc(100% - 32px));
+  margin:0 auto;
+}
 
-    .topbar-inner{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-      min-height:76px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(18px);
+  background:rgba(7,17,31,.55);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
+.topbar-inner{
+  width:min(var(--max), calc(100% - 32px));
+  margin:0 auto;
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
 
-    .brand-mark{
-      width:42px;
-      height:42px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2),var(--accent-3));
-      box-shadow:0 10px 30px rgba(124,140,255,.35);
-      position:relative;
-      overflow:hidden;
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  letter-spacing:.2px;
+}
 
-    .brand-mark::after{
-      content:"";
-      position:absolute;
-      inset:8px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,.4);
-    }
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2),var(--accent-3));
+  box-shadow:0 10px 30px rgba(124,140,255,.35);
+  position:relative;
+  overflow:hidden;
+}
 
-    .nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:flex-end;
-    }
+.brand-mark::after{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.4);
+}
 
-    .nav a{
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      color:var(--muted);
-      transition:.25s ease;
-      font-size:14px;
-    }
+.nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:flex-end;
+}
 
-    .nav a:hover,
-    .nav a.active{
-      color:#fff;
-      transform:translateY(-1px);
-      background:linear-gradient(135deg, rgba(110,231,255,.16), rgba(124,140,255,.16));
-      border-color:rgba(255,255,255,.18);
-    }
+.nav a{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--muted);
+  transition:.25s ease;
+  font-size:14px;
+}
 
-    .page{
-      min-height:calc(100vh - 76px);
-      display:flex;
-      align-items:center;
-      padding:34px 0;
-    }
+.nav a:hover,
+.nav a.active{
+  color:#fff;
+  transform:translateY(-1px);
+  background:linear-gradient(135deg, rgba(110,231,255,.16), rgba(124,140,255,.16));
+  border-color:rgba(255,255,255,.18);
+}
 
-    .policy{
-      width:100%;
-      padding:34px;
-      background:var(--panel);
-      border:1px solid var(--panel-border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      position:relative;
-      overflow:hidden;
-    }
+.page{
+  min-height:calc(100vh - 76px);
+  display:flex;
+  align-items:center;
+  padding:34px 0;
+}
 
-    .policy::before{
-      content:"";
-      position:absolute;
-      width:340px;
-      height:340px;
-      right:-120px;
-      top:-120px;
-      background:radial-gradient(circle, rgba(110,231,255,.20), transparent 70%);
-      pointer-events:none;
-    }
+.policy{
+  width:100%;
+  padding:34px;
+  background:var(--panel);
+  border:1px solid var(--panel-border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
+  position:relative;
+  overflow:hidden;
+}
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:13px;
-      color:var(--accent);
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      margin-bottom:16px;
-    }
+.policy::before{
+  content:"";
+  position:absolute;
+  width:340px;
+  height:340px;
+  right:-120px;
+  top:-120px;
+  background:radial-gradient(circle, rgba(110,231,255,.20), transparent 70%);
+  pointer-events:none;
+}
 
-    .eyebrow::before{
-      content:"";
-      width:28px;
-      height:1px;
-      background:currentColor;
-      opacity:.8;
-    }
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  color:var(--accent);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
 
-    h1{
-      margin:0 0 16px;
-      font-size:clamp(30px, 5vw, 56px);
-      line-height:1.05;
-      letter-spacing:-.03em;
-    }
+.eyebrow::before{
+  content:"";
+  width:28px;
+  height:1px;
+  background:currentColor;
+  opacity:.8;
+}
 
-    .intro{
-      margin:0 0 26px;
-      max-width:840px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.75;
-    }
+h1{
+  margin:0 0 16px;
+  font-size:clamp(30px, 5vw, 56px);
+  line-height:1.05;
+  letter-spacing:-.03em;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
+.intro{
+  margin:0 0 26px;
+  max-width:840px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.75;
+}
 
-    .block{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:20px;
-      padding:22px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
 
-    .block h2{
-      margin:0 0 10px;
-      font-size:19px;
-    }
+.block{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:22px;
+}
 
-    .block p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:15px;
-    }
+.block h2{
+  margin:0 0 10px;
+  font-size:19px;
+}
 
-    .block p + p{
-      margin-top:10px;
-    }
+.block p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:15px;
+}
 
-    .block ul{
-      margin:10px 0 0;
-      padding-left:20px;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:15px;
-    }
+.block p + p{
+  margin-top:10px;
+}
 
-    .block a{
-      color:var(--accent);
-      text-decoration:none;
-    }
+.block ul{
+  margin:10px 0 0;
+  padding-left:20px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:15px;
+}
 
-    .block a:hover,
-    .block a:focus-visible{
-      text-decoration:underline;
-      outline:none;
-    }
+.block a{
+  color:var(--accent);
+  text-decoration:none;
+}
 
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:24px;
-    }
+.block a:hover,
+.block a:focus-visible{
+  text-decoration:underline;
+  outline:none;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:50px;
-      padding:0 18px;
-      border-radius:16px;
-      font-weight:700;
-      transition:.25s ease;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      color:#fff;
-    }
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:24px;
+}
 
-    .btn.primary{
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#08111e;
-      border:none;
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:0 18px;
+  border-radius:16px;
+  font-weight:700;
+  transition:.25s ease;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+}
 
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 34px rgba(0,0,0,.24);
-    }
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#08111e;
+  border:none;
+}
 
-    .footer{
-      padding:0 0 34px;
-      color:var(--muted);
-      text-align:center;
-      font-size:14px;
-    }
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 34px rgba(0,0,0,.24);
+}
 
-    @media (max-width: 920px){
-      .grid{
-        grid-template-columns:1fr;
-      }
-    }
+.footer{
+  padding:0 0 34px;
+  color:var(--muted);
+  text-align:center;
+  font-size:14px;
+}
 
-    @media (max-width: 640px){
-      .shell,
-      .topbar-inner{
-        width:min(var(--max), calc(100% - 20px));
-      }
+@media (max-width: 920px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
 
-      .topbar-inner{
-        padding:10px 0;
-        align-items:flex-start;
-        flex-direction:column;
-      }
+@media (max-width: 640px){
+  .shell,
+  .topbar-inner{
+    width:min(var(--max), calc(100% - 20px));
+  }
 
-      .nav{
-        width:100%;
-        justify-content:flex-start;
-      }
+  .topbar-inner{
+    padding:10px 0;
+    align-items:flex-start;
+    flex-direction:column;
+  }
 
-      .nav a{
-        flex:1 1 calc(50% - 10px);
-        text-align:center;
-      }
+  .nav{
+    width:100%;
+    justify-content:flex-start;
+  }
 
-      .page{
-        padding:20px 0;
-        align-items:flex-start;
-      }
+  .nav a{
+    flex:1 1 calc(50% - 10px);
+    text-align:center;
+  }
 
-      .policy{
-        padding:24px 18px;
-      }
+  .page{
+    padding:20px 0;
+    align-items:flex-start;
+  }
 
-      .btn{
-        width:100%;
-      }
+  .policy{
+    padding:24px 18px;
+  }
 
-      .intro{
-        font-size:16px;
-      }
-    }
+  .btn{
+    width:100%;
+  }
+
+  .intro{
+    font-size:16px;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -320,13 +324,16 @@
         <span>Sparkle Joker</span>
       </a>
 
-      <nav class="nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="privacy.html" class="active">Privacy Policy</a>
-        <a href="support.html">Support</a>
-        <a href="marketing.html">Marketing</a>
-      </nav>
-    </div>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="privacy.html" class="active">Privacy Policy</a>
+    <a href="support.html">Support</a>
+    <a href="marketing.html">Marketing</a>
+  </nav>
+</div>
+
+
   </header>
 
   <main class="page">
@@ -341,190 +348,193 @@
           and attribution services.
         </p>
 
-        <div class="grid">
-          <article class="block">
-            <h2>1. Application Operator</h2>
-            <p>
-              Sparkle Joker is operated by <strong>Pippin Team</strong>. Questions about
-              this Privacy Policy may be sent to <strong>zohazibuq788@gmail.com</strong>.
-            </p>
-          </article>
 
-          <article class="block">
-            <h2>2. No User Accounts or Profiles</h2>
-            <p>
-              Sparkle Joker does not require registration, login, account creation, or
-              profile creation. The application does not provide an account deletion feature
-              because no user accounts or profiles are created or maintained by the application.
-            </p>
-          </article>
+    <div class="grid">
+      <article class="block">
+        <h2>1. Application Operator</h2>
+        <p>
+          Sparkle Joker is operated by <strong>Pippin Team</strong>. Questions about
+          this Privacy Policy may be sent to <strong>zohazibuq788@gmail.com</strong>.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>3. Local Game Progress and Preferences</h2>
-            <p>
-              Sparkle Joker may store game progress, achievements, selected preferences,
-              and related in-app settings locally on your device.
-            </p>
-            <p>
-              This local information is not a user account or profile. Sparkle Joker does
-              not provide registration, login, account creation, or profile creation.
-            </p>
-            <p>
-              You may remove locally stored app information by clearing the application's
-              locally stored data where your device provides that option, or by uninstalling
-              the application, subject to your device platform behavior.
-            </p>
-          </article>
+      <article class="block">
+        <h2>2. No User Accounts or Profiles</h2>
+        <p>
+          Sparkle Joker does not require registration, login, account creation, or
+          profile creation. The application does not provide an account deletion feature
+          because no user accounts or profiles are created or maintained by the application.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>4. Information That May Be Collected Automatically</h2>
-            <p>
-              When you use Sparkle Joker, certain technical and usage-related information may
-              be collected automatically through third-party software development kits integrated
-              into the application, including Google AdMob and AppsFlyer.
-            </p>
-            <p>This information may include:</p>
-            <ul>
-              <li>device identifiers, including advertising identifiers where available;</li>
-              <li>device type, operating system version, language, and general technical information;</li>
-              <li>IP address and approximate location derived from technical network information;</li>
-              <li>application interactions, ad views, ad clicks, and session-related events;</li>
-              <li>installation, attribution, and campaign performance information;</li>
-              <li>diagnostic or performance information needed to operate and measure services.</li>
-            </ul>
-          </article>
+      <article class="block">
+        <h2>3. Local Game Progress and Preferences</h2>
+        <p>
+          Sparkle Joker may store game progress, achievements, selected preferences,
+          and related in-app settings locally on your device.
+        </p>
+        <p>
+          This local information is not a user account or profile. Sparkle Joker does
+          not provide registration, login, account creation, or profile creation.
+        </p>
+        <p>
+          You may remove locally stored app information by clearing the application's
+          locally stored data where your device provides that option, or by uninstalling
+          the application, subject to your device platform behavior.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>5. Advertising Through Google AdMob</h2>
-            <p>
-              Sparkle Joker uses <strong>Google AdMob</strong> to display advertisements.
-              In connection with ad delivery, ad measurement, fraud prevention, and related
-              advertising functionality, Google may collect or process information such as
-              device identifiers, advertising identifiers, IP address, app interactions,
-              ad interactions, and diagnostic information.
-            </p>
-            <p>
-              Depending on applicable requirements, device settings, region, and consent
-              choices, advertisements may be personalized or non-personalized.
-            </p>
-            <p>
-              Additional information about Google's privacy practices is available in the
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
-            </p>
-          </article>
+      <article class="block">
+        <h2>4. Information That May Be Collected Automatically</h2>
+        <p>
+          When you use Sparkle Joker, certain technical and usage-related information may
+          be collected automatically through third-party software development kits integrated
+          into the application, including Google AdMob and Tenjin.
+        </p>
+        <p>This information may include:</p>
+        <ul>
+          <li>device identifiers, including advertising identifiers where available;</li>
+          <li>device type, operating system version, language, and general technical information;</li>
+          <li>IP address and approximate location derived from technical network information;</li>
+          <li>application interactions, ad views, ad clicks, and session-related events;</li>
+          <li>installation, attribution, and campaign performance information;</li>
+          <li>diagnostic or performance information needed to operate and measure services.</li>
+        </ul>
+      </article>
 
-          <article class="block">
-            <h2>6. Attribution and Measurement Through AppsFlyer</h2>
-            <p>
-              Sparkle Joker uses <strong>AppsFlyer</strong> for mobile attribution,
-              installation measurement, and advertising campaign performance analysis.
-              AppsFlyer may process technical, device, installation, interaction, and
-              attribution-related information in order to provide these services.
-            </p>
-            <p>
-              Additional information about AppsFlyer's privacy practices is available in the
-              <a href="https://www.appsflyer.com/legal/services-privacy-policy/" target="_blank" rel="noopener noreferrer">AppsFlyer Services Privacy Policy</a>.
-            </p>
-          </article>
+      <article class="block">
+        <h2>5. Advertising Through Google AdMob</h2>
+        <p>
+          Sparkle Joker uses <strong>Google AdMob</strong> to display advertisements.
+          In connection with ad delivery, ad measurement, fraud prevention, and related
+          advertising functionality, Google may collect or process information such as
+          device identifiers, advertising identifiers, IP address, app interactions,
+          ad interactions, and diagnostic information.
+        </p>
+        <p>
+          Depending on applicable requirements, device settings, region, and consent
+          choices, advertisements may be personalized or non-personalized.
+        </p>
+        <p>
+          Additional information about Google's privacy practices is available in the
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>7. How Information Is Used</h2>
-            <p>Information processed in connection with the application may be used to:</p>
-            <ul>
-              <li>store local game progress and preferences on your device;</li>
-              <li>display and measure advertisements;</li>
-              <li>understand app installations and advertising campaign performance;</li>
-              <li>support attribution and analytics functionality;</li>
-              <li>detect fraud, abuse, or invalid advertising activity;</li>
-              <li>maintain and improve the performance and reliability of the application and related services.</li>
-            </ul>
-          </article>
+      <article class="block">
+        <h2>6. Attribution and Measurement Through Tenjin</h2>
+        <p>
+          Sparkle Joker uses <strong>Tenjin</strong> for mobile attribution,
+          installation measurement, and advertising campaign performance analysis.
+          Tenjin may process technical, device, installation, interaction, and
+          attribution-related information in order to provide these services.
+        </p>
+        <p>
+          Additional information about Tenjin's privacy practices is available in the
+          <a href="https://tenjin.com/privacy/" target="_blank" rel="noopener noreferrer">Tenjin Privacy Policy</a>.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>8. Sharing and Sale of Data</h2>
-            <p>
-              Pippin Team does not sell user personal data. Local game progress,
-              achievements, selected preferences, and in-app settings are stored on
-              your device as described above.
-            </p>
-            <p>
-              Separate technical and usage-related information may be transmitted to and
-              processed by third-party service providers integrated into the application,
-              including <strong>Google AdMob</strong> and <strong>AppsFlyer</strong>, for
-              advertising, attribution, measurement, analytics, security, and service
-              operation purposes described in this Policy.
-            </p>
-            <p>
-              These providers process information in accordance with their own terms and
-              privacy policies.
-            </p>
-          </article>
+      <article class="block">
+        <h2>7. How Information Is Used</h2>
+        <p>Information processed in connection with the application may be used to:</p>
+        <ul>
+          <li>store local game progress and preferences on your device;</li>
+          <li>display and measure advertisements;</li>
+          <li>understand app installations and advertising campaign performance;</li>
+          <li>support attribution and analytics functionality;</li>
+          <li>detect fraud, abuse, or invalid advertising activity;</li>
+          <li>maintain and improve the performance and reliability of the application and related services.</li>
+        </ul>
+      </article>
 
-          <article class="block">
-            <h2>9. Data Storage and Retention</h2>
-            <p>
-              Local game progress, achievements, selected preferences, and application
-              settings are stored locally on your device and remain available until removed
-              through device-supported application data controls or by uninstalling the
-              application, subject to platform behavior.
-            </p>
-            <p>
-              Pippin Team does not operate a user account database for Sparkle Joker.
-              Information collected through Google AdMob and AppsFlyer may be stored and
-              retained by those service providers in accordance with their respective privacy
-              policies, contractual terms, configurations, and applicable law.
-            </p>
-          </article>
+      <article class="block">
+        <h2>8. Sharing and Sale of Data</h2>
+        <p>
+          Pippin Team does not sell user personal data. Local game progress,
+          achievements, selected preferences, and in-app settings are stored on
+          your device as described above.
+        </p>
+        <p>
+          Separate technical and usage-related information may be transmitted to and
+          processed by third-party service providers integrated into the application,
+          including <strong>Google AdMob</strong> and <strong>Tenjin</strong>, for
+          advertising, attribution, measurement, analytics, security, and service
+          operation purposes described in this Policy.
+        </p>
+        <p>
+          These providers process information in accordance with their own terms and
+          privacy policies.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>10. User Choices and Device Controls</h2>
-            <p>
-              You may remove local app content, such as game progress and preferences,
-              using available device controls for clearing app data or by uninstalling
-              the application, subject to the behavior of your device platform.
-            </p>
-            <p>
-              Depending on your device and region, you may also be able to control advertising
-              identifiers, ad personalization, tracking permissions, or consent choices through
-              your device settings or consent interfaces presented in the app.
-            </p>
-          </article>
+      <article class="block">
+        <h2>9. Data Storage and Retention</h2>
+        <p>
+          Local game progress, achievements, selected preferences, and application
+          settings are stored locally on your device and remain available until removed
+          through device-supported application data controls or by uninstalling the
+          application, subject to platform behavior.
+        </p>
+        <p>
+          Pippin Team does not operate a user account database for Sparkle Joker.
+          Information collected through Google AdMob and Tenjin may be stored and
+          retained by those service providers in accordance with their respective privacy
+          policies, contractual terms, configurations, and applicable law.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>11. Children's Privacy</h2>
-            <p>
-              Sparkle Joker does not provide account registration, profile creation, or online
-              profile submission. Advertising and measurement services used in the application
-              may be subject to additional configuration and legal requirements depending on
-              the intended audience and distribution settings of the application.
-            </p>
-          </article>
+      <article class="block">
+        <h2>10. User Choices and Device Controls</h2>
+        <p>
+          You may remove local app content, such as game progress and preferences,
+          using available device controls for clearing app data or by uninstalling
+          the application, subject to the behavior of your device platform.
+        </p>
+        <p>
+          Depending on your device and region, you may also be able to control advertising
+          identifiers, ad personalization, tracking permissions, or consent choices through
+          your device settings or consent interfaces presented in the app.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>12. Changes to This Privacy Policy</h2>
-            <p>
-              This Privacy Policy may be updated when the application, integrated services,
-              legal requirements, or data processing practices change. Any updated version
-              will be published on this page with a revised effective date.
-            </p>
-          </article>
+      <article class="block">
+        <h2>11. Children's Privacy</h2>
+        <p>
+          Sparkle Joker does not provide account registration, profile creation, or online
+          profile submission. Advertising and measurement services used in the application
+          may be subject to additional configuration and legal requirements depending on
+          the intended audience and distribution settings of the application.
+        </p>
+      </article>
 
-          <article class="block">
-            <h2>13. Contact</h2>
-            <p>
-              For questions about this Privacy Policy or the privacy practices of Sparkle Joker,
-              contact: <strong>zohazibuq788@gmail.com</strong>.
-            </p>
-          </article>
-        </div>
+      <article class="block">
+        <h2>12. Changes to This Privacy Policy</h2>
+        <p>
+          This Privacy Policy may be updated when the application, integrated services,
+          legal requirements, or data processing practices change. Any updated version
+          will be published on this page with a revised effective date.
+        </p>
+      </article>
 
-        <div class="actions">
-          <a class="btn primary" href="index.html">Back to Home</a>
-          <a class="btn" href="support.html">Support Page</a>
-          <a class="btn" href="marketing.html">Project Overview</a>
-        </div>
-      </section>
+      <article class="block">
+        <h2>13. Contact</h2>
+        <p>
+          For questions about this Privacy Policy or the privacy practices of Sparkle Joker,
+          contact: <strong>zohazibuq788@gmail.com</strong>.
+        </p>
+      </article>
     </div>
+
+    <div class="actions">
+      <a class="btn primary" href="index.html">Back to Home</a>
+      <a class="btn" href="support.html">Support Page</a>
+      <a class="btn" href="marketing.html">Project Overview</a>
+    </div>
+  </section>
+</div>
+
+
   </main>
 
   <footer class="footer shell">
